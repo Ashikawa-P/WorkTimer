@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity"
+         minHeight="-Infinity" minWidth="-Infinity"
+         prefHeight="400.0" prefWidth="600.0"
+         tabClosingPolicy="UNAVAILABLE"
+         xmlns="http://javafx.com/javafx/26"
+         xmlns:fx="http://javafx.com/fxml/1">
+    <tabs>
+        <Tab text="Capture">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0"
+                            prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <Button fx:id="captureButton"
+                                alignment="CENTER"
+                                layoutX="52.0" layoutY="149.0"
+                                mnemonicParsing="false"
+                                prefWidth="80.0"
+                                text="Start Day" />
+
+                        <LineChart fx:id="captureGraph"
+                                   animated="false"
+                                   createSymbols="false"
+                                   layoutX="160.0" layoutY="21.0"
+                                   prefHeight="280.0" prefWidth="400.0">
+                            <xAxis>
+                                <NumberAxis label="Vergangene Zeit in Stunden"
+                                            forceZeroInRange="true" />
+                            </xAxis>
+                            <yAxis>
+                                <NumberAxis label="Gearbeitete Zeit in Stunden"
+                                            forceZeroInRange="true" />
+                            </yAxis>
+                        </LineChart>
+
+                        <Label fx:id="captureLabel"
+                               alignment="CENTER"
+                               layoutX="52.0" layoutY="202.0"
+                               prefWidth="80.0"
+                               text="00:00:00"
+                               textAlignment="CENTER" />
+
+                        <TextField fx:id="note"
+                                   layoutX="100.0" layoutY="322.0"
+                                   prefHeight="25.0" prefWidth="400.0"
+                                   promptText="Note" />
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+
+        <Tab text="Lookup">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0"
+                            prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <DatePicker fx:id="lookupDate"
+                                    layoutX="213.0" layoutY="14.0" />
+
+                        <Label fx:id="exportLabel"
+                               layoutX="455.0" layoutY="19.0"
+                               style="-fx-text-fill: #1677c8; -fx-underline: true; -fx-cursor: hand;"
+                               text="Excel exportieren" />
+
+                        <LineChart fx:id="lookupGraph"
+                                   animated="false"
+                                   createSymbols="false"
+                                   layoutX="100.0" layoutY="45.0"
+                                   prefHeight="230.0" prefWidth="400.0">
+                            <xAxis>
+                                <NumberAxis label="Vergangene Zeit in Stunden"
+                                            forceZeroInRange="true" />
+                            </xAxis>
+                            <yAxis>
+                                <NumberAxis label="Gearbeitete Zeit in Stunden"
+                                            forceZeroInRange="true" />
+                            </yAxis>
+                        </LineChart>
+
+                        <Label fx:id="lookupTimeLabel"
+                               layoutX="100.0" layoutY="282.0"
+                               prefWidth="400.0"
+                               text="Kein Datum ausgewählt" />
+
+                        <Label fx:id="lookupNoteLabel"
+                               alignment="TOP_LEFT"
+                               layoutX="100.0" layoutY="309.0"
+                               prefHeight="50.0" prefWidth="400.0"
+                               wrapText="true" />
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>
